@@ -1,0 +1,108 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="hero-text fade-up">
+      <span class="tag">&#127775; Welcome to NexaTech Solutions</span>
+      <h1 class="hero-title">
+        Powering the Future of<br>
+        <span class="accent-text">Digital Business</span>
+      </h1>
+      <p class="hero-sub">
+        We build enterprise-grade software solutions that help modern organizations scale, secure, and succeed in an ever-evolving digital landscape.
+      </p>
+      <div class="hero-cta">
+        <a routerLink="/products" class="btn-primary-custom">
+          <i class="bi bi-grid-3x3-gap"></i> Explore Products
+        </a>
+        <a routerLink="/about" class="btn-secondary-custom">Learn Our Story</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="hero-card">
+        <div class="card-header">
+          <span class="dot green"></span><span class="dot yellow"></span><span class="dot red"></span>
+          <span class="card-title">System Status</span>
+        </div>
+        <div class="metric"><span>Uptime</span><strong>99.99%</strong></div>
+        <div class="metric"><span>Response</span><strong>42ms</strong></div>
+        <div class="metric"><span>Incidents</span><strong class="success-text">0</strong></div>
+        <div class="status-bar"><div class="bar-fill"></div></div>
+        <small>All systems operational</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item" *ngFor="let stat of stats">
+        <div class="stat-value">{{ stat.value }}</div>
+        <div class="stat-label">{{ stat.label }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission/Vision Section -->
+<section class="section-pad">
+  <div class="container">
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-icon"><i class="bi bi-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>To be the world's most trusted technology partner — enabling every organization, regardless of size, to harness the power of modern software to achieve extraordinary outcomes.</p>
+      </div>
+      <div class="mv-card accent-border">
+        <div class="mv-icon accent"><i class="bi bi-bullseye"></i></div>
+        <h3>Our Mission</h3>
+        <p>We build powerful, reliable, and intuitive software products that solve real business problems — delivering measurable value from day one, and growing with our clients for years to come.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-icon"><i class="bi bi-stars"></i></div>
+        <h3>Our Values</h3>
+        <p>Innovation, integrity, and impact drive everything we do. We believe technology should empower people — so we design every product with the human experience at the center.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us Section -->
+<section class="section-pad why-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <span class="tag">Why NexaTech</span>
+        <h2 class="section-title">Built for Teams That <span class="accent-text">Mean Business</span></h2>
+        <p class="section-subtitle">We don't just ship software — we become long-term partners in your success, offering the tools, support, and expertise to help you move faster and smarter.</p>
+        <a routerLink="/services" class="btn-primary-custom">View All Services</a>
+      </div>
+      <div class="col-lg-7">
+        <div class="highlights">
+          <div class="highlight-item card-dark p-4" *ngFor="let h of highlights">
+            <div class="hi-icon"><i class="bi {{ h.icon }}"></i></div>
+            <div>
+              <h4>{{ h.title }}</h4>
+              <p>{{ h.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container text-center">
+    <h2>Ready to Transform Your Business?</h2>
+    <p>Join 500+ enterprises already using NexaTech to build their digital future.</p>
+    <a routerLink="/contact" class="btn-primary-custom">
+      <i class="bi bi-arrow-right-circle"></i> Start a Conversation
+    </a>
+  </div>
+</section>

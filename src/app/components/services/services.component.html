@@ -1,0 +1,69 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="tag">What We Do</span>
+    <h1 class="section-title">Services That Drive<br><span class="accent-text">Real Results</span></h1>
+    <p class="section-subtitle">From cloud infrastructure to AI automation — we offer end-to-end technology services that help your business operate smarter and grow faster.</p>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="services-grid">
+      <div class="service-card card-dark" *ngFor="let s of services">
+        <div class="service-top">
+          <div class="service-icon">
+            <i class="bi {{ s.icon }}"></i>
+          </div>
+          <span class="badge-accent">{{ s.tag }}</span>
+        </div>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.description }}</p>
+        <div class="divider"></div>
+        <ul class="feature-list">
+          <li *ngFor="let f of s.features">
+            <i class="bi bi-check-circle-fill"></i>
+            {{ f }}
+          </li>
+        </ul>
+        <a routerLink="/contact" class="service-cta">
+          Get Started <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="section-pad process-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="tag">How We Work</span>
+      <h2 class="section-title">Our Proven <span class="accent-text">Process</span></h2>
+    </div>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Discovery</h4>
+        <p>We learn your business, goals, and challenges through deep-dive workshops with your team.</p>
+      </div>
+      <div class="step-arrow"><i class="bi bi-arrow-right"></i></div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Strategy</h4>
+        <p>We craft a tailored solution roadmap, technology stack, and project plan aligned to your needs.</p>
+      </div>
+      <div class="step-arrow"><i class="bi bi-arrow-right"></i></div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Build</h4>
+        <p>Our Agile team delivers in iterative sprints, keeping you informed and involved at every stage.</p>
+      </div>
+      <div class="step-arrow"><i class="bi bi-arrow-right"></i></div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Launch & Support</h4>
+        <p>We go live together, then stay on as your long-term partner for maintenance and growth.</p>
+      </div>
+    </div>
+  </div>
+</section>

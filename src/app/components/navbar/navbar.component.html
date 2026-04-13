@@ -1,0 +1,143 @@
+<nav class="navbar-custom" [class.scrolled]="isScrolled">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a class="brand" routerLink="/" (click)="closeMenu()">
+        <span class="brand-icon"><i class="bi bi-hexagon-fill"></i></span>
+        <span class="brand-name">Nexa<span class="accent">Tech</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links">
+        <li *ngFor="let link of navLinks">
+          <a [routerLink]="link.path"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: link.path === '/'}">
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+
+        <!-- Cart Toggle Button -->
+        <button class="cart-btn" (click)="toggleCart()" title="View Cart">
+          <i class="bi bi-bag"></i>
+          <span class="cart-count" *ngIf="cartService.cartCount() > 0">
+            {{ cartService.cartCount() }}
+          </span>
+        </button>
+
+        <!-- Desktop Cart Dropdown -->
+        <div class="desktop-cart-dropdown" *ngIf="cartOpen">
+
+          <!-- Empty State -->
+          <div class="desktop-cart-empty" *ngIf="cartService.cartCount() === 0">
+            <i class="bi bi-bag-x"></i>
+            <p>Your cart is empty</p>
+          </div>
+
+          <!-- Cart Items -->
+          <ng-container *ngIf="cartService.cartCount() > 0">
+            <div class="cart-dropdown-item" *ngFor="let item of cartService.getCartItems()()">
+              <img [src]="item.product.image" [alt]="item.product.name" class="cart-item-img">
+              <div class="cart-item-info">
+                <span class="cart-item-name">{{ item.product.name }}</span>
+                <span class="cart-item-meta">
+                  {{ item.quantity }} &times; {{ item.product.price | currency:'USD':'symbol':'1.2-2' }}
+                </span>
+              </div>
+              <button class="cart-item-remove" (click)="cartService.removeFromCart(item.product.id)">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+
+            <!-- Footer Total -->
+            <div class="cart-dropdown-footer">
+              <span class="cart-total-label">Total</span>
+              <span class="cart-total-value">
+                {{ cartService.cartTotal() | currency:'USD':'symbol':'1.2-2' }}
+              </span>
+            </div>
+
+            <!-- Actions -->
+            <div class="cart-dropdown-actions">
+              <a routerLink="/products" class="cart-action-browse" (click)="cartOpen = false">
+                <i class="bi bi-grid"></i> Browse Products
+              </a>
+              <button class="cart-action-clear" (click)="cartService.clearCart()">
+                <i class="bi bi-trash"></i> Clear
+              </button>
+            </div>
+          </ng-container>
+
+        </div>
+
+        <a routerLink="/contact" class="btn-cta">Get Started</a>
+
+        <!-- Hamburger -->
+        <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" [class.open]="menuOpen">
+      <ul>
+        <li *ngFor="let link of navLinks">
+          <a [routerLink]="link.path"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: link.path === '/'}"
+             (click)="closeMenu()">
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile Cart Link -->
+      <a routerLink="/products" class="mobile-cart" (click)="closeMenu()">
+        <i class="bi bi-bag"></i> Cart
+        <span class="cart-count" *ngIf="cartService.cartCount() > 0">
+          {{ cartService.cartCount() }}
+        </span>
+      </a>
+
+      <!-- Mobile Cart Dropdown -->
+      <div class="mobile-cart-dropdown" *ngIf="cartService.cartCount() > 0">
+        <div class="cart-dropdown-item" *ngFor="let item of cartService.getCartItems()()">
+          <img [src]="item.product.image" [alt]="item.product.name" class="cart-item-img">
+          <div class="cart-item-info">
+            <span class="cart-item-name">{{ item.product.name }}</span>
+            <span class="cart-item-meta">
+              {{ item.quantity }} &times; {{ item.product.price | currency:'USD':'symbol':'1.2-2' }}
+            </span>
+          </div>
+          <button class="cart-item-remove" (click)="cartService.removeFromCart(item.product.id); $event.stopPropagation()">
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+
+        <div class="cart-dropdown-footer">
+          <span class="cart-total-label">Total</span>
+          <span class="cart-total-value">
+            {{ cartService.cartTotal() | currency:'USD':'symbol':'1.2-2' }}
+          </span>
+        </div>
+
+        <div class="cart-dropdown-actions">
+          <a routerLink="/products" class="cart-action-browse" (click)="closeMenu()">
+            <i class="bi bi-grid"></i> Browse Products
+          </a>
+          <button class="cart-action-clear" (click)="cartService.clearCart()">
+            <i class="bi bi-trash"></i> Clear Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>

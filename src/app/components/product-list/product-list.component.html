@@ -1,0 +1,60 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="tag">Our Software Suite</span>
+    <h1 class="section-title">Products Built for<br><span class="accent-text">Modern Enterprise</span></h1>
+    <p class="section-subtitle">Six powerful platforms designed to work independently or together as a complete business operating system.</p>
+    <div class="cart-summary" *ngIf="cartService.cartCount() > 0">
+      <i class="bi bi-bag-check-fill"></i>
+      {{ cartService.cartCount() }} item{{ cartService.cartCount() !== 1 ? 's' : '' }} in cart
+      — Total: {{ cartService.cartTotal() | currency:'ZAR':'symbol':'1.2-2' }}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="products-grid">
+      <div class="product-card card-dark" *ngFor="let product of products">
+        <!-- Badge -->
+        <div class="product-badge" *ngIf="product.badge">{{ product.badge }}</div>
+
+        <!-- Product Image -->
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <div class="image-overlay">
+            <a [routerLink]="['/products', product.id]" class="overlay-btn">
+              <i class="bi bi-eye"></i> Quick View
+            </a>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-body">
+          <div class="product-category">{{ product.category }}</div>
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-desc">{{ product.shortDescription }}</p>
+
+          <!-- Price using Currency Pipe -->
+          <div class="product-price">
+            {{ product.price | currency:'USD':'symbol':'1.2-2' }}
+            <span class="price-period">/ year</span>
+          </div>
+
+          <!-- Action Buttons (Event Binding) -->
+          <div class="product-actions">
+            <a [routerLink]="['/products', product.id]" class="btn-secondary-custom">
+              View Details
+            </a>
+            <button
+              class="btn-primary-custom add-btn"
+              [class.added]="addedProductId === product.id"
+              (click)="addToCart(product, $event)">
+              <i class="bi" [class.bi-cart-plus]="addedProductId !== product.id" [class.bi-check-lg]="addedProductId === product.id"></i>
+              {{ addedProductId === product.id ? 'Added!' : 'Add to Cart' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

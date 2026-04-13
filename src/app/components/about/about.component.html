@@ -1,0 +1,124 @@
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="tag">Our Story</span>
+    <h1 class="section-title">Built by Builders,<br><span class="accent-text">For Builders</span></h1>
+    <p class="section-subtitle">Since 2012, NexaTech Solutions has been engineering the tools that help modern organizations move faster, build smarter, and scale further.</p>
+  </div>
+</section>
+
+<!-- Company Overview -->
+<section class="section-pad">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="tag">Who We Are</span>
+        <h2 class="section-title">More Than a Software Company</h2>
+        <p style="color: var(--text-muted); line-height:1.8; margin-bottom: 1.5rem;">
+          NexaTech Solutions is a global enterprise software company headquartered in Cape Town, South Africa. We design, build, and support a comprehensive suite of business software products — from cloud infrastructure to cybersecurity, data analytics, and process automation.
+        </p>
+        <p style="color: var(--text-muted); line-height:1.8;">
+          With offices across Africa, Europe, and Asia, and a distributed team of 200+ engineers, designers, and support specialists, we serve 500+ enterprise clients in 30+ countries. Every product we ship is built with a singular focus: making your business more resilient, efficient, and competitive.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="about-grid">
+          <div class="about-stat card-dark p-4 text-center">
+            <div class="about-stat-value">200+</div>
+            <div class="about-stat-label">Team Members</div>
+          </div>
+          <div class="about-stat card-dark p-4 text-center">
+            <div class="about-stat-value">30+</div>
+            <div class="about-stat-label">Countries Served</div>
+          </div>
+          <div class="about-stat card-dark p-4 text-center">
+            <div class="about-stat-value">6</div>
+            <div class="about-stat-label">Core Products</div>
+          </div>
+          <div class="about-stat card-dark p-4 text-center">
+            <div class="about-stat-value">$45M</div>
+            <div class="about-stat-label">Funding Raised</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section-pad timeline-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="tag">Our History</span>
+      <h2 class="section-title">A Decade of <span class="accent-text">Innovation</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item" *ngFor="let m of milestones; let i = index">
+        <div class="tl-year">{{ m.year }}</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content card-dark p-4">
+          <h4>{{ m.title }}</h4>
+          <p>{{ m.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section-pad">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="tag">What We Stand For</span>
+      <h2 class="section-title">Our Core <span class="accent-text">Values</span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card card-dark p-4" *ngFor="let v of values">
+        <i class="bi {{ v.icon }}"></i>
+        <h4>{{ v.title }}</h4>
+        <p>{{ v.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="section-pad team-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="tag">The People</span>
+      <h2 class="section-title">Meet Our <span class="accent-text">Leadership</span></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card card-dark p-4" *ngFor="let member of team">
+        <div class="avatar">{{ member.initials }}</div>
+        <h4>{{ member.name }}</h4>
+        <span class="role-badge">{{ member.role }}</span>
+        <p>{{ member.bio }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Goals -->
+<section class="section-pad goals-section">
+  <div class="container">
+    <div class="row align-items-start g-5">
+      <div class="col-lg-5">
+        <span class="tag">Looking Ahead</span>
+        <h2 class="section-title">Our Strategic <span class="accent-text">Goals</span></h2>
+        <p style="color: var(--text-muted); line-height:1.8;">
+          We are ambitious about where we're going. Our roadmap is built around sustainable growth, product excellence, and a commitment to making a positive impact — for our clients, our team, and the world.
+        </p>
+      </div>
+      <div class="col-lg-7">
+        <div class="goals-list">
+          <div class="goal-item" *ngFor="let goal of goals; let i = index">
+            <div class="goal-num">{{ i + 1 | number:'2.0-0' }}</div>
+            <p>{{ goal }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
